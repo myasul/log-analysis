@@ -20,17 +20,17 @@ select au.name, count(*) as article_views
 
 -- Query to get the average views that succeeded versus the ones that returned an error per day
 -- Created view > view_percentage_log
-
+create view view_perc_log as
 select l1.log_date, 
         l1.status, 
-        (round(cast (l1.status_count as numeric) / cast (l2.status_count as numeric) * 100,2)) as add -- Gets the percentage of a specific status
+        (round(cast (l1.status_count as numeric) / cast (l2.status_count as numeric) * 100,2)) as perc -- Gets the percentage of a specific status
     from (select time::timestamp::date as log_date, status, count(status) as status_count -- Query that returns the number of views 
     from log                                                                              -- grouped by respective status.  
     group by log_date, status) l1,
     (select time::timestamp::date as log_date, count(status) as status_count -- Query that returns total number of requests per day
     from log
     group by log_date) l2
-    where to_char(l1.log_date, 'YYYY-MM-DD') = to_char(l2.log_date, 'YYYY-MM-DD')
+    where to_char(l1.log_date, 'YYYY-MM-DD') = to_char(l2.log_date, 'YYYY-MM-DD');
     limit 4;
 
 select time::timestamp::date as log_date, count(status) as status_count
