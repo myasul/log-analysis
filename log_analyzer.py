@@ -4,7 +4,8 @@ DBNAME = "news"
 
 
 def main():
-    # Open a file. This is where we will write the data that we will fetch from the database.
+    # Open a file. This is where we will write the
+    # data that we will fetch from the database.
     output_file = open("analysis.txt", "w")
     final_output = ""
 
