@@ -21,8 +21,7 @@ def main():
     cursor.execute("select * from top_articles limit 3")
     top_articles = cursor.fetchall()
 
-    cursor.execute(
-        "select * from view_perc_log where status like '%404%' and perc > 1")
+    cursor.execute("select * from error_perc_log where perc > 1")
     errors = cursor.fetchall()
     conn.close()  # Close connection after we have fetched all the needed data.
 
@@ -41,7 +40,7 @@ def main():
     output_errors = "Days where more than 1% of requests led to errors:\n"
     for error in errors:
         output_errors += "* {0:'%B %d, %Y'} - {1}% errors\n".format(
-            error[0], error[2])
+            error[0], error[1])
 
     final_output = '''********************
 *   Log Analyzer   *
