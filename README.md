@@ -9,6 +9,7 @@ The extract from the reporting tool answers the following questions:
 - Who are the most popular article authors of all time? 
 - On which days did more than 1% of requests lead to errors? 
 
+
 Requirements:
 Here are pre-requisites for you to able to run the reporting tool.
 
@@ -19,14 +20,9 @@ http://docs.python-guide.org/en/latest/starting/installation/
 http://postgresguide.com/setup/install.html
 
 * Install psycopg2.
-Via Windows:
-http://www.stickpeople.com/projects/python/win-psycopg/
-
-Mac:
-https://medium.com/pixel-heart/os-x-sierra-postgresql-and-psycopg2-42c0c95acb23
-
-Linux:
-https://www.fullstackpython.com/blog/postgresql-python-3-psycopg2-ubuntu-1604.html
+    - Via Windows: http://www.stickpeople.com/projects/python/win-psycopg/
+    - Via Mac: https://medium.com/pixel-heart/os-x-sierra-postgresql-and-psycopg2-42c0c95acb23
+    - Linux: https://www.fullstackpython.com/blog/postgresql-python-3-psycopg2-ubuntu-1604.html
 
 * Download and import news database in PostgreSQL.
     - You can download the news database in the link below.
@@ -37,11 +33,13 @@ https://www.fullstackpython.com/blog/postgresql-python-3-psycopg2-ubuntu-1604.ht
 * Import the views in your news database.
 Run the command 'psql -d news -f create_views.sql' in the same directory where create_views.sql is located.
 
+
 Execution:
 Follow the link below for the steps to run a Python script.
 https://www.pythoncentral.io/execute-python-script-file-shell/
 
 The file to be run is log_analyzer.py. After you have run log_analyzer.py, it should generate the text file named analysis.txt.
+
 
 ** Views/Queries used **
 
