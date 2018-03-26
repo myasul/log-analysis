@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import psycopg2
 
 DBNAME = "news"
@@ -39,8 +40,8 @@ def main():
 
     output_errors = "Days where more than 1% of requests led to errors:\n"
     for error in errors:
-        output_errors += "* {} - {}% errors\n".format(
-            error[0].strftime('%B %d, %Y'), error[2])
+        output_errors += "* {0:'%B %d, %Y'} - {1}% errors\n".format(
+            error[0], error[2])
 
     final_output = '''********************
 *   Log Analyzer   *
@@ -55,4 +56,5 @@ def main():
     output_file.close()
 
 
-main()
+if __name__ == '__main__':
+    main()
